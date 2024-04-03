@@ -15,6 +15,7 @@ const placeOrder = async (orderData, callback) => {
             if(uidInsErr){handleErrorLog("Err in placing order at orders table")}
             
             const orderId = uidInsRes.insertId;
+            // console.log(orderId);
             pool.query(
                 'INSERT INTO order_benificiary (bnf_name, email, company, designation, purpose, user_id) VALUES (?,?,?,?,?,?)', 
                 [name, email, company, designation, purpose, userId],
@@ -49,12 +50,11 @@ const placeOrder = async (orderData, callback) => {
                                 }
                             )
                            
-                        })
-
-                })
-            // console.log(orderId);
+                        }
+                    )
+                }
+            )
         })
-
     } catch (error) {
         console.error("Error placing order:", error); 
         throw { success: false, error };

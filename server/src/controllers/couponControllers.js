@@ -9,6 +9,30 @@ const getAllCouponCodes = async (req, res) => {
     })
 }
 
+const addDiscountCoupon = async (req, res) => {
+    let couponData = req.body;
+
+    couponServices.addDiscountCoupon( couponData, (error, response) => {
+        if (error) return handleError("Error at creating new coupon code", res, error);
+
+        if (response){
+            res.status(200).json({Status: "Success"});
+        }
+    })
+}
+
+const deleteCoupon = async (req, res) => {
+    const couponId = req.params.couponId;
+
+    couponServices.deleteCoupon( couponId, (error, response) => {
+        if (error) return handleError("Error deleting coupon", res, error);
+
+        if (response){
+            res.status(200).json({Status: "Success"});
+        }
+    } )
+}
+
 const verifyCoupon = async (req, res) => {
     const { code } = req.params;
     let { subtotalAmount, discountAmount, totalAmount } = req.query;
@@ -45,5 +69,7 @@ const verifyCoupon = async (req, res) => {
 
 module.exports = {
     verifyCoupon,
+    addDiscountCoupon,
+    deleteCoupon,
     getAllCouponCodes
 }

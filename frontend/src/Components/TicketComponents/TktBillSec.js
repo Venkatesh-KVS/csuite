@@ -8,7 +8,7 @@ const TktBillSec = ({ tktInfo, billing, setBilling }) => {
         const fetchTktBnfDetails = async () => {
             try {
                 const response = await axios.get(`${BASE_URL}/ticket/billing-details/${tktInfo.order_billing_id}`);
-                // console.log(response.data);
+
                 if (response && response.data.length > 0) {
                     const data = response.data[0];
                     setBilling({
@@ -17,8 +17,6 @@ const TktBillSec = ({ tktInfo, billing, setBilling }) => {
                         tktDiscountAmount: data.order_discount_amount,
                         tktTotalAmount: data.order_total_amount
                     });
-                } else {
-                    console.log('No billing details found');
                 }
             } catch (error) {
                 console.log(error);

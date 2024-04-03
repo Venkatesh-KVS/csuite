@@ -18,9 +18,7 @@ export default function TktBnfSec({ tktInfo, beneficiary, setBeneficiary }) {
                         designation: data.designation,
                         // purpose: data.purpose
                     });
-                } else {
-                    console.log('No beneficiaries found');
-                }
+                } 
             } catch (error) {
                 console.log(error);
             }

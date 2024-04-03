@@ -16,15 +16,12 @@ export default function Step3({ currentStep, setCurrentStep, checkOutFormData, s
     const [couponcode, setCouponCode] = useState('');
     const [couponValidationStatus, setCouponValidationStatus] = useState('');
 
-    useEffect(() => {
-        console.log(subtotalAmount, discountAmount, totalAmount);
-    }, [subtotalAmount, discountAmount, totalAmount])
-
+    
     useEffect(() => {
         const fetchTicketAmount = async () => {
             try {
                 const response = await axios.get(`${BASE_URL}/ticket/get-price`);
-
+                
                 setSubtotalAmount(response.data);
                 setTotalAmount(response.data);
             } catch (errer) { console.error(errer); }
@@ -92,14 +89,26 @@ export default function Step3({ currentStep, setCurrentStep, checkOutFormData, s
     const handlePlaceOrderCallback = useCallback(() => {
         handlePlaceOrder();
     }, [handlePlaceOrder]);
-
+    
     useEffect(() => {
         if (checkOutFormData.payment.rzp_order_id) {
             handlePlaceOrderCallback();
         }
     }, [checkOutFormData.payment.rzp_order_id, handlePlaceOrderCallback]);
     
-
+    useEffect(() => {
+        // console.log(subtotalAmount, discountAmount, totalAmount);
+        setCheckOutFormData((prevData) => ({
+            ...prevData,
+            amount: {
+                ...prevData.amount,
+                subTotalAmount: subtotalAmount,
+                couponCodeDiscount: discountAmount,
+                totalAmount: totalAmount,
+            }
+        }));
+    }, [setCheckOutFormData, subtotalAmount, discountAmount, totalAmount])
+    
     return (
         <Wrapper>
             <div className="px-md-5 py-md-4 p-3">

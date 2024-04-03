@@ -8,12 +8,10 @@ const TktFooterSec = ({ tktInfo, rzpPmtId, setRzpPmtId }) => {
         const fetchPaymentDetails = async () => {
             try {
                 const response = await axios.get(`${BASE_URL}/ticket/payment-details/${tktInfo.payment_id}`);
-                console.log(response.data);
+                // console.log(response.data);
                 if (response && response.data.length > 0) {
                     const data = response.data[0];
                     setRzpPmtId(data.rzp_payment_id);
-                } else {
-                    console.log('No beneficiaries found');
                 }
             } catch (error) {
                 console.log(error);

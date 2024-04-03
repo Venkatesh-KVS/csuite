@@ -1,10 +1,10 @@
 import React from 'react'
-import DownloadPDFButton from '../Components/TestingComponents/DownloadPDFButton'
+import CollapsibleTable from '../Components/DashboardComponents/CouponCodesListTable'
 
 export default function TestPage() {
   return (
     <div style={{height: "87vh"}} className='border'>
-      <DownloadPDFButton />
+      <CollapsibleTable />
     </div>
   )
 }

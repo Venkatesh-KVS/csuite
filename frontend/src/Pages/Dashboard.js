@@ -5,7 +5,7 @@ import DashboardTabs from '../Components/DashboardComponents/DashboardTabs';
 export default function Dashboard({setTicketInfoPopupShow}) {
   return (
     <Wrapper>
-      <div className="container-fluid overflow-hidden rounded-4 bgLgt1 h-100 p-3 pb-0">
+      <div className="container overflow-hidden rounded-4 bgLgt1 h-100 p-3 pb-0">
         <DashboardTabs setTicketInfoPopupShow={setTicketInfoPopupShow} />
       </div>
     </Wrapper>

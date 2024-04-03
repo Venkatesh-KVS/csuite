@@ -10,7 +10,7 @@ const verifyUser = (req, res, next) => {
         jwt.verify(token, privateKey, (err, decoded) => {
             if (err) {
                 // console.log({ TokenIncorrectError: "token not correct" });
-                console.log(err);
+                // console.log(err);
                 return res.json({ Error: "Bad Request!" });
             } else {
                 req.userId = decoded.sub;
