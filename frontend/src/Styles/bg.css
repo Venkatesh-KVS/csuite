@@ -1,0 +1,25 @@
+.allBg {
+  background: url("/public/images/bg_img.png") no-repeat,
+    linear-gradient(
+      290deg,
+      rgb(247, 4, 234, 0.1),
+      rgb(255, 154, 3, 0.1),
+      rgba(248, 100, 5, 0.1),
+      rgba(178, 29, 247, 0.1)
+    );
+  /* width: 100vw; */
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 0px);
+  display: flex;
+  padding: 5%;
+  text-align: center;
+  justify-content: center;
+}
+.glassBox {
+  background-color: rgb(255, 255, 255, 0.5);
+  padding: 0 50px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  width: 700px;
+}
