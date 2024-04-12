@@ -95,6 +95,7 @@ function App() {
 
         <Footer />
       </Router>
+      {/* <img className="bgImg" src="/images/bg_img.png" alt="" /> */}
     </div>
   );
 }

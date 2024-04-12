@@ -13,14 +13,13 @@ export const Footer = () => {
 
 const Wrapper = styled.div`
   .footer {
-    background: transparent !important;
-    position: absolute;
+    position: fixed;
     width: 100%;
     left: 0;
     bottom: 0;
     background: #ffffff90 !important;
     .text {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
     }
   }

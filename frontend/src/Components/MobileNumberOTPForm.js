@@ -84,7 +84,7 @@ export default function MobileNumberOTPForm({
 
   return (
     <Wrapper>
-      <Grid container spacing={2} className="ps-3 pt-3">
+      <Grid container spacing={2} className="otpForm">
         <Form
           className="d-flex flex-column gap-3 w-100"
           onSubmit={(e) => {

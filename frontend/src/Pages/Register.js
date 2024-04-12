@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import StepComponentContainer from "../Components/StepComponentContainer";
-// import { Header } from "../Components/Header";
+import { Header } from "../Components/Header";
 
 export const Register = ({
   auth,
@@ -12,11 +12,11 @@ export const Register = ({
   const [ticketId, setTicketId] = useState("");
 
   return (
-    <Wrapper>
-      {/* <Header auth={auth} userId={userId} /> */}
-      <div className="stepsSection p-md-4 p-2 mx-auto">
-        <img className="mb-3" width={150} src="/images/csuitelogo.png" alt="" />
-        <div className="stepsWrapper  glassBox shadow-sm rounded-4 overflow-hidden">
+    <Wrapper className="">
+      <Header auth={auth} userId={userId} />
+      <div className="stepsSection p-md-3 p-2 mx-auto d-flex-cc">
+        {/* <img className="mb-3" width={150} src="/images/csuitelogo.png" alt="" /> */}
+        <div className="stepsWrapper glassBox shadow-sm rounded-4 overflow-hidden">
           <StepComponentContainer
             userId={userId}
             checkOutFormData={checkOutFormData}
@@ -31,10 +31,11 @@ export const Register = ({
 };
 
 const Wrapper = styled.div`
-  width: 100%;
+  /* width: 100%; */
   /* background: white; */
   background-size: contain;
-  position: relative;
+  height: 100%;
+  /* position: relative; */
   z-index: 0;
   &:after {
     content: "";
@@ -49,7 +50,7 @@ const Wrapper = styled.div`
     width: 800px;
     /* height: 60vh; */
     .stepsWrapper {
-      border: 1px solid #fff;
+      /* border: 1px solid #fff; */
     }
   }
 

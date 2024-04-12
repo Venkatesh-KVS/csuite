@@ -11,7 +11,7 @@ export default function Step1({
 }) {
   return (
     <Wrapper>
-      <div className="step1 px-md-5 py-md-4 p-3">
+      <div className="step1 p-5 ">
         <MobileNumberOTPForm
           userId={userId}
           currentStep={currentStep}
@@ -25,7 +25,11 @@ export default function Step1({
 }
 
 const Wrapper = styled.div`
-  .step1 {
-    /* border: 2px solid; */
+  @media screen and (max-width: 600px) {
+    .step1 {
+      /* border: 2px solid; */
+      padding: 10px 0;
+      margin: 0;
+    }
   }
 `;

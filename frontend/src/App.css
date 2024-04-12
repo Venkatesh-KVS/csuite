@@ -9,6 +9,7 @@
   --clr1: #43141d;
   --clr2: #f5903b;
   --clr3: #8458a4;
+  --clr4: #d34197;
   --text: #2c2c2c;
   --light1: #f1f8ff;
   --white: #ffffff;
@@ -23,4 +24,10 @@
   font-size: inherit;
   color: inherit;
   /* background-color: rgb(146, 146, 146); */
+}
+
+@media screen and (max-width: 600px) {
+  .step-1 {
+    padding: 20px;
+  }
 }

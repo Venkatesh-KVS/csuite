@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import Step1 from "../Components/Step1";
 import Step2 from "../Components/Step2";
@@ -22,7 +22,9 @@ const StepComponentContainer = ({
     setCurrentStep((prevStep) => Math.max(prevStep - 1, 0));
   };
 
-  // useEffect(() => { console.log(currentStep); }, [currentStep]);
+  useEffect(() => {
+    console.log(currentStep);
+  }, [currentStep]);
 
   const components = [
     <Step1
@@ -52,7 +54,7 @@ const StepComponentContainer = ({
   return (
     <Wrapper>
       <div className="progressBar">
-        <div className="stepsProgressBarWrpr bg-light d-flex align-items-center">
+        <div className="stepsProgressBarWrpr  d-flex align-items-center">
           <div
             style={{ width: `${(currentStep + 1) * 25}%` }}
             className={`stepsProgressBar`}
@@ -60,16 +62,16 @@ const StepComponentContainer = ({
         </div>
 
         <div>{components[currentStep]}</div>
-        <div className="d-flex-cc gap-2 mt-4 btnsWrapper">
+        <div className="d-flex-cc gap-5 btnsWrapper">
           <button
-            className="btn btn-primary"
+            className="prev"
             onClick={prevStep}
             disabled={currentStep === 0}
           >
             Prev
           </button>
           <button
-            className="btn btn-primary"
+            className="next"
             onClick={nextStep}
             disabled={currentStep === components.length - 1}
           >
@@ -85,13 +87,11 @@ export default StepComponentContainer;
 
 const Wrapper = styled.div`
   /* height: calc(80vh - 180px); */
-  position: relative;
-  height: auto;
+  /* position: relative; */
+  /* height: auto; */
 
   .progressBar {
     height: 100%;
-
-    /* width: 600px; */
     background-color: transparent;
   }
   .stepsProgressBarWrpr {
@@ -112,8 +112,22 @@ const Wrapper = styled.div`
   }
   .btnsWrapper {
     /* position: absolute; */
-    margin-bottom: 25px;
     /* left: 50%; */
     /* transform: translate(-50%, 0); */
+  }
+  .prev,
+  .next {
+    /* display: none; */
+    border: none;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    &:active {
+      border-bottom: 2px solid;
+    }
+    &:focus {
+      border-bottom: 2px solid;
+    }
   }
 `;

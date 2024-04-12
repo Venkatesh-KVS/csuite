@@ -27,7 +27,7 @@ export default function Home({ auth, userId }) {
           <p className="ptxt mb-0">6th - 7th June 2024</p>
           <p className="ptxt">At The Taj Mahal Palace, Mumbai, India</p>
           <Link to="/register">
-            <button className="regBtn text-white my-2 ">Register Now</button>
+            <button className="regBtn text-white my-3 ">Register Now</button>
           </Link>
           <Link className="lm" to="https://youtube.com">
             <span className="lrnMore">Learn More</span>
@@ -71,7 +71,7 @@ const Wrapper = styled.div`
     .homeContent {
       margin-bottom: 10%;
       .ptxt {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 500;
       }
     }
@@ -104,11 +104,12 @@ const Wrapper = styled.div`
       text-decoration: none;
     }
   }
-  @media screen and (max-width: 360px) {
+  @media only screen and (max-width: 600px) {
     .home {
+      align-items: center;
       height: 100vh;
       .ntLogo {
-        margin-top: -50%;
+        margin-top: 10%;
       }
       .animate-charcter {
         font-size: 1.8rem;
